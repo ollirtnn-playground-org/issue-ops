@@ -22,6 +22,7 @@ env:
   GITLAB_INSTANCE_URL: ${{ secrets.gitlab_instance_url || 'https://gitlab.com' }}
   CIRCLE_CI_ACCESS_TOKEN: ${{ secrets.circle_ci_access_token }}
   CIRCLE_CI_SOURCE_GITHUB_ACCESS_TOKEN: ${{ secrets.circle_ci_source_github_access_token }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   execute-actions-importer:
@@ -37,7 +38,6 @@ jobs:
           gh actions-importer update
         env:
           GH_TOKEN: ${{ secrets.ghcr_password }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/github-script@v6
         if: always()
         with:
