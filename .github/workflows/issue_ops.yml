@@ -37,6 +37,7 @@ jobs:
           gh actions-importer update
         env:
           GH_TOKEN: ${{ secrets.ghcr_password }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/github-script@v6
         if: always()
         with:
