@@ -84,18 +84,18 @@ jobs:
         with:
           path: output/
           name: output
-      - if: always()
-        id: logs
-        run: |
-          path=$(ls output/log/*.log | head -1)
-          filename=$(basename "$path")
-          echo "LOG_FILE_PATH=$path" >> $GITHUB_ENV
-          echo "filename=$filename" >> $GITHUB_OUTPUT
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          path: ${{ env.LOG_FILE_PATH }}
-          name: logs
+      # - if: always()
+      #   id: logs
+      #   run: |
+      #     path=$(ls output/log/*.log | head -1)
+      #     filename=$(basename "$path")
+      #     echo "LOG_FILE_PATH=$path" >> $GITHUB_ENV
+      #     echo "filename=$filename" >> $GITHUB_OUTPUT
+      # - uses: actions/upload-artifact@v2
+      #   if: always()
+      #   with:
+      #     path: ${{ env.LOG_FILE_PATH }}
+      #     name: logs
 
   audit:
     runs-on: ubuntu-latest
